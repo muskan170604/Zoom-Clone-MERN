@@ -14,7 +14,7 @@ const app=express();
 const server=createServer(app);
 const io=connectToSocket(server);
 
-app.set("port",(process.env.PORT||8000));
+app.set("port",(process.env.PORT||10000));
 app.use(cors());
 app.use(express.json({limit:"40kb"}));
 app.use(express.urlencoded({limit:"40kb",extended:true}));
@@ -28,10 +28,11 @@ app.get("/home",(req,res)=>{
 });
 
 const start=async()=>{
+    app.set("mongo_user")
     const connectionDb=await mongoose.connect("mongodb+srv://mbhartinna2008:CUHzbdl9Ug76D3Gx@cluster0.ysmuk.mongodb.net/")
     console.log("connection established successfully")
 server.listen(app.get("port"),()=>{
-    console.log("app is listening on the port 8000");
+    console.log(`app is listening on the port 10000`);
 });
 
 }
