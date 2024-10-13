@@ -30,6 +30,7 @@ app.get("/home",(req,res)=>{
 const start=async()=>{
     app.set("mongo_user")
     const connectionDb=await mongoose.connect("mongodb+srv://mbhartinna2008:CUHzbdl9Ug76D3Gx@cluster0.ysmuk.mongodb.net/")
+    console.log(`MONGO Connected DB HOst: ${connectionDb.connection.host}`)
     console.log("connection established successfully")
 server.listen(app.get("port"),()=>{
     console.log(`app is listening on the port 10000`);
